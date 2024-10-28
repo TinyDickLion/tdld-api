@@ -22,7 +22,7 @@ export async function sendRewards(to: any, amount: any, assetId: any) {
         amount,
         undefined, // closeRemainderTo
         // @ts-ignore
-        algosdk.encodeObj("Tiny Dick Lion's Den: Thank you for participating in our activities 👻"),
+        algosdk.encodeObj("Tiny Dick Lion's Den: Congrats!"),
         suggestedParams
       );
     } else {
