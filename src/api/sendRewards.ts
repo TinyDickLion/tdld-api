@@ -17,7 +17,7 @@ router.post<{}, SendRewardsResponse>(
 
     const { to, score } = req.body;
 
-    if (score === 1000) {
+    if (score === 100) {
       const txn = await sendRewards(to, 1 * 100000000, "2176744157");
 
       res.json({ statusCode: res.statusCode, txn: txn });
