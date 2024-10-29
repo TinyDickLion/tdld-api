@@ -17,13 +17,15 @@ router.post<{}, SendRewardsResponse>(
 
     const { to, score } = req.body;
 
-    if (score >= 100) {
-      const txn = await sendRewards(to, 1 * 100000000, "2176744157");
+    setTimeout(async () => {
+      if (score >= 100) {
+        const txn = await sendRewards(to, 1 * 100000000, "2176744157");
 
-      res.json({ statusCode: res.statusCode, txn: txn });
-    } else {
-      res.json({ statusCode: 404, txn: "Wrong score" });
-    }
+        res.json({ statusCode: res.statusCode, txn: txn });
+      } else {
+        res.json({ statusCode: 404, txn: "Wrong score" });
+      }
+    }, 3000);
   }
 );
 
