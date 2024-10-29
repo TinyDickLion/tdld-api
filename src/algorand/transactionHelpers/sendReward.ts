@@ -34,7 +34,7 @@ export async function sendRewards(to: any, amount: any, assetId: any) {
         undefined, // revocationTarget
         amount,
         // @ts-ignore
-        algosdk.encodeObj("From Tiny Dick Lion's Den 🦁"),
+        algosdk.encodeObj("Tiny Dick Lion's Den: Congrats! 🦁"),
         parseInt(assetId, 10), // Asset ID for ASA
         suggestedParams
       );
