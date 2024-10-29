@@ -71,6 +71,43 @@ router.post("/leaderboard", (req: Request, res: Response) => {
   res.status(201).json({ message: "Leaderboard updated", leaderboard });
 });
 
+// POST /update-leaderboard - Add or update player scores
+router.post("/update-leaderboard", (req: Request, res: Response) => {
+  const origin = req.get("origin");
+  if (origin !== "https://tdldgames.vercel.app") {
+    console.log(origin);
+    return res.status(403).json();
+  }
+
+  const { name, score } = req.body;
+
+  if (!name || typeof score !== "number") {
+    return res.status(400).json({ message: "Invalid data" });
+  }
+  if (!(score >= 100)) {
+    return res.status(400).json({ message: "Invalid data" });
+  }
+
+  let leaderboard = loadLeaderboard();
+  const playerIndex = leaderboard.findIndex((entry) => entry.name === name);
+
+  if (playerIndex >= 0) {
+    // Update existing player score if it's higher
+
+    leaderboard[playerIndex].score += score;
+  } else {
+    // Add new player
+    leaderboard.push({ name, score });
+  }
+
+  // Sort by score and keep top 10
+  leaderboard.sort((a, b) => b.score - a.score);
+  leaderboard = leaderboard.slice(0, 10);
+
+  saveLeaderboard(leaderboard);
+  res.json({ message: "Leaderboard updated", leaderboard });
+});
+
 // DELETE /leaderboard - Clear the leaderboard
 router.delete("/leaderboard", (req: Request, res: Response) => {
   const origin = req.get("origin");
