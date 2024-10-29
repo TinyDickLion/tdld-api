@@ -36,7 +36,7 @@ const saveLeaderboard = (data: LeaderboardEntry[]): void => {
 // GET /leaderboard - Get the current leaderboard
 router.get("/leaderboard", (req: Request, res: Response) => {
   const origin = req.get("origin");
-  if (origin !== "https://tdldgamer.vercel.app") {
+  if (origin !== "https://tdldgames.vercel.app") {
     console.log(origin);
     return res.status(403).json();
   }
@@ -47,7 +47,7 @@ router.get("/leaderboard", (req: Request, res: Response) => {
 // POST /leaderboard - Add a new entry to the leaderboard
 router.post("/leaderboard", (req: Request, res: Response) => {
   const origin = req.get("origin");
-  if (origin !== "https://tdldgamer.vercel.app") {
+  if (origin !== "https://tdldgames.vercel.app") {
     console.log(origin);
     return res.status(403).json();
   }
@@ -74,7 +74,7 @@ router.post("/leaderboard", (req: Request, res: Response) => {
 // DELETE /leaderboard - Clear the leaderboard
 router.delete("/leaderboard", (req: Request, res: Response) => {
   const origin = req.get("origin");
-  if (origin !== "https://tdldgamer.vercel.app") {
+  if (origin !== "https://tdldgames.vercel.app") {
     console.log(origin);
     return res.status(403).json();
   }

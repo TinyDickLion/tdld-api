@@ -10,7 +10,7 @@ router.post<{}, GetDepositTXResponse>(
   async (req: Request, res: Response) => {
     const origin = req.get("origin");
 
-    if (origin !== "https://tdldgamer.vercel.app") {
+    if (origin !== "https://tdldgames.vercel.app") {
       console.log(origin);
       return res.status(403).json();
     }
