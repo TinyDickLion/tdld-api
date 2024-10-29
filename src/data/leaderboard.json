@@ -1,0 +1,7 @@
+[
+  { "rank": 1, "name": "Player1", "score": 2500 },
+  { "rank": 2, "name": "Player2", "score": 2300 },
+  { "rank": 3, "name": "Player3", "score": 2200 },
+  { "rank": 4, "name": "Player4", "score": 2100 },
+  { "rank": 5, "name": "Player5", "score": 2000 }
+]

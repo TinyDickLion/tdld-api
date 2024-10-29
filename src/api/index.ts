@@ -3,6 +3,7 @@ import express from "express";
 import MessageResponse from "../interfaces/MessageResponse";
 import sendRewards from "./sendRewards";
 import checkDeposit from "./checkDeposit";
+import leaderboard from "./leaderboard";
 
 const router = express.Router();
 
@@ -13,5 +14,6 @@ router.get<{}, MessageResponse>("/", (req, res) => {
 });
 router.use("/", sendRewards);
 router.use("/", checkDeposit);
+router.use("/", leaderboard);
 
 export default router;
