@@ -23,7 +23,9 @@
     "morgan": "^1.10.0",
     "algosdk": "^2.6.0",
     "crypto": "^1.0.1",
-    "crypto-js": "^4.2.0"
+    "crypto-js": "^4.2.0",
+    "@tinymanorg/tinyman-js-sdk": "^4.0.5",
+    "axios": "^1.7.7"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
