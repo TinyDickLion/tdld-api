@@ -58,7 +58,7 @@ router.post<{}, SendRewardsResponse>(
       return res.status(403).json({ success: false, message: "Forbidden" });
     }
 
-    const { to, score } = req.body;
+    const { to, score, gameName } = req.body;
 
     let participants: any = [];
 
@@ -80,12 +80,27 @@ router.post<{}, SendRewardsResponse>(
     }
 
     // Check if the score is sufficient to claim rewards
-    if (score < 100) {
-      return res.status(400).json({
-        success: false,
-        message:
-          "Score is too low to claim rewards. Score must be at least 100.",
-      });
+    switch (gameName) {
+      case "trivia":
+        if (score < 80) {
+          return res.status(400).json({
+            success: false,
+            message:
+              "Score is too low to claim rewards. Score must be at least 100.",
+          });
+        }
+        break;
+      case "match3mania":
+        if (score < 100) {
+          return res.status(400).json({
+            success: false,
+            message:
+              "Score is too low to claim rewards. Score must be at least 100.",
+          });
+        }
+        break;
+      default:
+        break;
     }
 
     try {
