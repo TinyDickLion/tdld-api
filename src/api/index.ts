@@ -5,6 +5,7 @@ import sendRewards from "./sendRewards";
 import checkDeposit from "./checkDeposit";
 import leaderboard from "./leaderboard";
 import clearParticipants from "./clearDailyParticipants"
+import trivia from "./trivia"
 
 const router = express.Router();
 
@@ -17,5 +18,6 @@ router.use("/", sendRewards);
 router.use("/", checkDeposit);
 router.use("/", leaderboard);
 router.use("/", clearParticipants);
+router.use("/", trivia);
 
 export default router;
