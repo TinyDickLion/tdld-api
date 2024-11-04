@@ -24,7 +24,14 @@ const loadTriviaQuestions = (): TriviaQuestion[] => {
   }
 };
 
-// GET /trivia - Get the trivia questions data
+// Utility to shuffle an array
+const shuffleArray = <T>(array: T[]): T[] => {
+  return array
+    .map(item => ({ item, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ item }) => item);
+};
+
 router.get("/trivia-questions", (req: Request, res: Response) => {
   const origin = req.get("origin");
   if (origin !== "https://tdldgames.vercel.app") {
@@ -33,7 +40,8 @@ router.get("/trivia-questions", (req: Request, res: Response) => {
   }
 
   const triviaQuestions = loadTriviaQuestions();
-  res.json(triviaQuestions);
+  const randomQuestions = shuffleArray(triviaQuestions).slice(0, 10);
+  res.json(randomQuestions);
 });
 
 export default router;
