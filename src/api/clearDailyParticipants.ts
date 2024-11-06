@@ -4,6 +4,7 @@ import path from "path";
 
 const dataPath = path.join(__dirname, "../data/dailyparticipants.json");
 
+// read data
 const readDataFile = (): Promise<{ participantAddress: string }[]> => {
   return new Promise((resolve, reject) => {
     fs.readFile(dataPath, "utf8", (err, data) => {
