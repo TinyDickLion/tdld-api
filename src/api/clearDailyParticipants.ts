@@ -2,10 +2,8 @@ import express, { Request, Response } from "express";
 import fs from "fs";
 import path from "path";
 
-// Path to the JSON file
 const dataPath = path.join(__dirname, "../data/dailyparticipants.json");
 
-// Function to read the data file
 const readDataFile = (): Promise<{ participantAddress: string }[]> => {
   return new Promise((resolve, reject) => {
     fs.readFile(dataPath, "utf8", (err, data) => {
@@ -18,7 +16,6 @@ const readDataFile = (): Promise<{ participantAddress: string }[]> => {
   });
 };
 
-// Function to write to the data file
 const writeDataFile = (
   data: { participantAddress: string; multiplier: number }[]
 ): Promise<void> => {
