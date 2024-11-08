@@ -99,6 +99,15 @@ router.post<{}, SendRewardsResponse>(
           });
         }
         break;
+      case "turnBasedBattle":
+        if (score < 100) {
+          return res.status(400).json({
+            success: false,
+            message:
+              "Please try Again",
+          });
+        }
+        break;
       default:
         break;
     }
