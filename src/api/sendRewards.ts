@@ -91,7 +91,7 @@ router.post<{}, SendRewardsResponse>(
       if (hasHeld === false) {
         return res.status(400).json({
           success: false,
-          message: `Not eligible. To claim the reward, you must hold ${selectedToken.toUpperCase()} continuously in your wallet for at least 12 hours without any recent incoming transfers.`,
+          message: `Not eligible. To claim the reward, you must hold ${selectedToken.toUpperCase()} continuously in your wallet for at least 12 hours without any recent incoming $TDLD token transfers.`,
         });
       }
 
