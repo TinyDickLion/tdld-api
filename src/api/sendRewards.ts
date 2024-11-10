@@ -4,6 +4,7 @@ import { sendRewards } from "../algorand/transactionHelpers/sendReward";
 import { getAccountBalance } from "../algorand/transactionHelpers/getAccountBalance";
 import fs from "fs";
 import path from "path";
+import { hasNoRecentInflow } from "../algorand/checkAssetHoldingTime";
 
 const router = express.Router();
 
@@ -90,6 +91,14 @@ router.post<{}, SendRewardsResponse>(
 
       // Calculate reward based on held amount
       const rewardAmount = Math.floor((heldAmount * rewardPercent) / 100);
+
+      const hasHeld = await hasNoRecentInflow(to, assetId);
+      if(hasHeld === false){
+        return res.status(400).json({
+          success: false,
+          message: `Not eligible, you need to have held the ${selectedToken.toUpperCase()} Asset longer than 12 hours to be eligible`,
+        });
+      }
 
       // Send the reward
       const txn = await sendRewards(
