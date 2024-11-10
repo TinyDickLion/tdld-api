@@ -40,31 +40,28 @@ router.post<{}, SendRewardsResponse>(
         .json({ success: false, message: "Unsupported token" });
     }
 
-    const { assetId, minAlgoValue, rewardPercent } = tokenDetails[selectedToken];
+    const { assetId, minAlgoValue, rewardPercent } =
+      tokenDetails[selectedToken];
     const API_VESTIGE_URL = `https://free-api.vestige.fi/asset/${assetId}/price?currency=algo`;
 
     // Score validation based on game
     const requiredScore =
       gameName === "match3mania" || gameName === "turnBasedBattle" ? 100 : 80;
     if (score < requiredScore) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "Score is too low to claim rewards.",
-        });
+      return res.status(400).json({
+        success: false,
+        message: "Score is too low to claim rewards.",
+      });
     }
 
     try {
       // Ensure the user hasn't already claimed rewards today
       const participants = await readDataFile();
       if (participants.find((p: any) => p.participantAddress === to)) {
-        return res
-          .status(429)
-          .json({
-            success: false,
-            message: "You've already claimed your reward for today.",
-          });
+        return res.status(429).json({
+          success: false,
+          message: "You've already claimed your reward for today.",
+        });
       }
 
       // Fetch token price in ALGO and calculate minimum balance
@@ -81,22 +78,20 @@ router.post<{}, SendRewardsResponse>(
 
       // Check eligibility based on holdings
       if (heldAmount < requiredBalance) {
-        return res
-          .status(400)
-          .json({
-            success: false,
-            message: `Insufficient ${selectedToken.toUpperCase()} balance to claim rewards.`,
-          });
+        return res.status(400).json({
+          success: false,
+          message: `Insufficient ${selectedToken.toUpperCase()} balance to claim rewards.`,
+        });
       }
 
       // Calculate reward based on held amount
       const rewardAmount = Math.floor((heldAmount * rewardPercent) / 100);
 
       const hasHeld = await hasNoRecentInflow(to, assetId);
-      if(hasHeld === false){
+      if (hasHeld === false) {
         return res.status(400).json({
           success: false,
-          message: `Not eligible, you need to have held the ${selectedToken.toUpperCase()} Asset longer than 12 hours to be eligible`,
+          message: `Not eligible. To claim the reward, you must hold ${selectedToken.toUpperCase()} continuously in your wallet for at least 12 hours without any recent incoming transfers.`,
         });
       }
 
