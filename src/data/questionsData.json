@@ -1,497 +1,308 @@
 [
   {
-    "question": "In what year did the Berlin Wall fall?",
+    "question": "Who is known as the creator of Bitcoin?",
     "options": [
-      { "text": "1989", "isCorrect": true },
-      { "text": "1990", "isCorrect": false },
-      { "text": "1988", "isCorrect": false },
-      { "text": "1991", "isCorrect": false }
+      { "text": "Satoshi Nakamoto", "isCorrect": true },
+      { "text": "Vitalik Buterin", "isCorrect": false },
+      { "text": "Charlie Lee", "isCorrect": false },
+      { "text": "Gavin Wood", "isCorrect": false }
     ]
   },
   {
-    "question": "Who is known as the father of modern physics?",
+    "question": "Which blockchain is known for smart contracts and decentralized applications (dApps)?",
     "options": [
-      { "text": "Albert Einstein", "isCorrect": false },
-      { "text": "Isaac Newton", "isCorrect": false },
-      { "text": "Galileo Galilei", "isCorrect": false },
-      { "text": "Max Planck", "isCorrect": true }
+      { "text": "Ethereum", "isCorrect": true },
+      { "text": "Bitcoin", "isCorrect": false },
+      { "text": "Litecoin", "isCorrect": false },
+      { "text": "Ripple", "isCorrect": false }
     ]
   },
   {
-    "question": "Which French leader is associated with the Napoleonic Code?",
+    "question": "What does NFT stand for?",
     "options": [
-      { "text": "Louis XVI", "isCorrect": false },
-      { "text": "Napoleon Bonaparte", "isCorrect": true },
-      { "text": "Charles de Gaulle", "isCorrect": false },
-      { "text": "Henri IV", "isCorrect": false }
+      { "text": "Non-Fungible Token", "isCorrect": true },
+      { "text": "New Fintech Token", "isCorrect": false },
+      { "text": "Next Finance Technology", "isCorrect": false },
+      { "text": "Non-Financial Token", "isCorrect": false }
     ]
   },
   {
-    "question": "What is the longest river in the world?",
+    "question": "Which platform is commonly used for decentralized finance (DeFi) applications?",
     "options": [
-      { "text": "Nile", "isCorrect": true },
+      { "text": "Ethereum", "isCorrect": true },
+      { "text": "Solana", "isCorrect": false },
+      { "text": "Cardano", "isCorrect": false },
+      { "text": "Bitcoin", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is the maximum supply of Bitcoin?",
+    "options": [
+      { "text": "21 million", "isCorrect": true },
+      { "text": "100 million", "isCorrect": false },
+      { "text": "50 million", "isCorrect": false },
+      { "text": "Infinite", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What does 'DAO' stand for in blockchain?",
+    "options": [
+      { "text": "Decentralized Autonomous Organization", "isCorrect": true },
+      { "text": "Digital Asset Organization", "isCorrect": false },
+      { "text": "Data Analysis Operation", "isCorrect": false },
+      { "text": "Distributed Access Operation", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Which consensus mechanism is used by Bitcoin?",
+    "options": [
+      { "text": "Proof of Work", "isCorrect": true },
+      { "text": "Proof of Stake", "isCorrect": false },
+      { "text": "Proof of Burn", "isCorrect": false },
+      { "text": "Proof of Authority", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Which programming language is most commonly used to write smart contracts on Ethereum?",
+    "options": [
+      { "text": "Solidity", "isCorrect": true },
+      { "text": "Python", "isCorrect": false },
+      { "text": "JavaScript", "isCorrect": false },
+      { "text": "Rust", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Which blockchain network uses the native token 'Algo'?",
+    "options": [
+      { "text": "Algorand", "isCorrect": true },
+      { "text": "Ethereum", "isCorrect": false },
+      { "text": "Cardano", "isCorrect": false },
+      { "text": "Tron", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is the primary purpose of a 'smart contract'?",
+    "options": [
+      { "text": "To automatically execute and enforce terms of an agreement", "isCorrect": true },
+      { "text": "To secure digital wallets", "isCorrect": false },
+      { "text": "To replace traditional legal contracts", "isCorrect": false },
+      { "text": "To manage blockchain nodes", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is 'staking' in blockchain?",
+    "options": [
+      { "text": "Locking up cryptocurrency to support network security and earn rewards", "isCorrect": true },
+      { "text": "Mining coins on a blockchain", "isCorrect": false },
+      { "text": "Selling tokens on an exchange", "isCorrect": false },
+      { "text": "Buying NFTs", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Which protocol is widely known for enabling decentralized exchange on Ethereum?",
+    "options": [
+      { "text": "Uniswap", "isCorrect": true },
+      { "text": "Coinbase", "isCorrect": false },
+      { "text": "Binance", "isCorrect": false },
+      { "text": "Kraken", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Which term describes the idea of users owning and controlling their own data?",
+    "options": [
+      { "text": "Decentralization", "isCorrect": true },
+      { "text": "Proof of Stake", "isCorrect": false },
+      { "text": "Centralization", "isCorrect": false },
+      { "text": "Encryption", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is a 'blockchain fork'?",
+    "options": [
+      { "text": "A change in the blockchain's protocol", "isCorrect": true },
+      { "text": "A new blockchain created from a hack", "isCorrect": false },
+      { "text": "The division of nodes into multiple chains", "isCorrect": false },
+      { "text": "The reduction of block rewards", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Which layer 1 blockchain is known for its high transaction speed and low fees?",
+    "options": [
+      { "text": "Solana", "isCorrect": true },
+      { "text": "Ethereum", "isCorrect": false },
+      { "text": "Bitcoin", "isCorrect": false },
+      { "text": "Polkadot", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is meant by 'gas fee' in Ethereum?",
+    "options": [
+      { "text": "A transaction fee for using the network", "isCorrect": true },
+      { "text": "A charge for staking rewards", "isCorrect": false },
+      { "text": "The cost of storing data on the network", "isCorrect": false },
+      { "text": "A fee to enter decentralized finance applications", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is a 'hot wallet'?",
+    "options": [
+      { "text": "A cryptocurrency wallet connected to the internet", "isCorrect": true },
+      { "text": "A wallet kept in a physical form", "isCorrect": false },
+      { "text": "A wallet that stores fiat currency", "isCorrect": false },
+      { "text": "A wallet that holds NFTs only", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "What is the native cryptocurrency of Binance Chain?",
+    "options": [
+      { "text": "BNB", "isCorrect": true },
+      { "text": "ETH", "isCorrect": false },
+      { "text": "DOT", "isCorrect": false },
+      { "text": "ADA", "isCorrect": false }
+    ]
+  },
+  {
+    "question": "Which platform is widely recognized for NFT trading?",
+    "options": [
+      { "text": "OpenSea", "isCorrect": true },
       { "text": "Amazon", "isCorrect": false },
-      { "text": "Yangtze", "isCorrect": false },
-      { "text": "Mississippi", "isCorrect": false }
+      { "text": "Coinbase", "isCorrect": false },
+      { "text": "Binance", "isCorrect": false }
     ]
   },
   {
-    "question": "What is the term for a number that only has two divisors?",
+    "question": "Who co-founded Ethereum alongside Vitalik Buterin?",
     "options": [
-      { "text": "Prime number", "isCorrect": true },
-      { "text": "Composite number", "isCorrect": false },
-      { "text": "Rational number", "isCorrect": false },
-      { "text": "Whole number", "isCorrect": false }
+      { "text": "Gavin Wood", "isCorrect": true },
+      { "text": "Charlie Lee", "isCorrect": false },
+      { "text": "Satoshi Nakamoto", "isCorrect": false },
+      { "text": "Dan Larimer", "isCorrect": false }
     ]
   },
   {
-    "question": "Which scientist discovered penicillin?",
+    "question": "Which layer 2 solution on Ethereum aims to improve scalability?",
     "options": [
-      { "text": "Alexander Fleming", "isCorrect": true },
-      { "text": "Louis Pasteur", "isCorrect": false },
-      { "text": "Marie Curie", "isCorrect": false },
-      { "text": "Robert Koch", "isCorrect": false }
+      { "text": "Polygon", "isCorrect": true },
+      { "text": "Algorand", "isCorrect": false },
+      { "text": "Bitcoin Lightning Network", "isCorrect": false },
+      { "text": "Solana", "isCorrect": false }
     ]
   },
   {
-    "question": "What is the main component of the sun?",
+    "question": "What is the term for generating new tokens on a blockchain?",
     "options": [
-      { "text": "Hydrogen", "isCorrect": true },
-      { "text": "Helium", "isCorrect": false },
-      { "text": "Oxygen", "isCorrect": false },
-      { "text": "Carbon", "isCorrect": false }
+      { "text": "Minting", "isCorrect": true },
+      { "text": "Burning", "isCorrect": false },
+      { "text": "Forging", "isCorrect": false },
+      { "text": "Mining", "isCorrect": false }
     ]
   },
   {
-    "question": "Who is the author of 'The Communist Manifesto'?",
+    "question": "Which blockchain feature ensures data cannot be changed once recorded?",
     "options": [
-      { "text": "Karl Marx", "isCorrect": true },
-      { "text": "Adam Smith", "isCorrect": false },
-      { "text": "Friedrich Engels", "isCorrect": false },
-      { "text": "John Stuart Mill", "isCorrect": false }
+      { "text": "Immutability", "isCorrect": true },
+      { "text": "Encryption", "isCorrect": false },
+      { "text": "Decentralization", "isCorrect": false },
+      { "text": "Interoperability", "isCorrect": false }
     ]
   },
   {
-    "question": "What country has the most time zones?",
+    "question": "What does 'Metamask' primarily function as?",
     "options": [
-      { "text": "Russia", "isCorrect": true },
-      { "text": "United States", "isCorrect": false },
-      { "text": "China", "isCorrect": false },
-      { "text": "Canada", "isCorrect": false }
+      { "text": "A browser wallet for Ethereum", "isCorrect": true },
+      { "text": "A decentralized exchange", "isCorrect": false },
+      { "text": "A platform for buying NFTs", "isCorrect": false },
+      { "text": "A blockchain game", "isCorrect": false }
     ]
   },
   {
-    "question": "What does HTTP stand for?",
+    "question": "Which blockchain is known for creating the concept of 'parachains'?",
     "options": [
-      { "text": "Hypertext Transfer Protocol", "isCorrect": true },
-      { "text": "High Transfer Text Protocol", "isCorrect": false },
-      { "text": "Hyperloop Transfer Pathway", "isCorrect": false },
-      { "text": "Hexadecimal Text Transfer Path", "isCorrect": false }
+      { "text": "Polkadot", "isCorrect": true },
+      { "text": "Ethereum", "isCorrect": false },
+      { "text": "Algorand", "isCorrect": false },
+      { "text": "Solana", "isCorrect": false }
     ]
   },
   {
-    "question": "What is the largest organ in the human body?",
+    "question": "What does 'rug pull' mean in cryptocurrency?",
     "options": [
-      { "text": "Skin", "isCorrect": true },
-      { "text": "Heart", "isCorrect": false },
-      { "text": "Liver", "isCorrect": false },
-      { "text": "Brain", "isCorrect": false }
+      { "text": "A scam where developers withdraw funds and abandon the project", "isCorrect": true },
+      { "text": "An upgrade to improve transaction speed", "isCorrect": false },
+      { "text": "A strategy to stake tokens", "isCorrect": false },
+      { "text": "A method of mining cryptocurrency", "isCorrect": false }
     ]
   },
   {
-    "question": "Which planet is known as the Red Planet?",
+    "question": "What does ERC-20 represent in Ethereum?",
     "options": [
-      { "text": "Mars", "isCorrect": true },
-      { "text": "Earth", "isCorrect": false },
-      { "text": "Venus", "isCorrect": false },
-      { "text": "Jupiter", "isCorrect": false }
+      { "text": "A standard for fungible tokens", "isCorrect": true },
+      { "text": "A non-fungible token standard", "isCorrect": false },
+      { "text": "A protocol for staking", "isCorrect": false },
+      { "text": "A governance model", "isCorrect": false }
     ]
   },
   {
-    "question": "Which element has the highest melting point?",
+    "question": "Which consensus mechanism requires token holders to validate transactions?",
     "options": [
-      { "text": "Tungsten", "isCorrect": true },
-      { "text": "Iron", "isCorrect": false },
-      { "text": "Carbon", "isCorrect": false },
-      { "text": "Platinum", "isCorrect": false }
+      { "text": "Proof of Stake", "isCorrect": true },
+      { "text": "Proof of Work", "isCorrect": false },
+      { "text": "Proof of Authority", "isCorrect": false },
+      { "text": "Proof of Burn", "isCorrect": false }
     ]
   },
   {
-    "question": "What is the capital city of Australia?",
+    "question": "What does 'airdrop' mean in the crypto space?",
     "options": [
-      { "text": "Canberra", "isCorrect": true },
-      { "text": "Sydney", "isCorrect": false },
-      { "text": "Melbourne", "isCorrect": false },
-      { "text": "Brisbane", "isCorrect": false }
+      { "text": "Free token distribution to holders or participants", "isCorrect": true },
+      { "text": "Buying tokens at a discount", "isCorrect": false },
+      { "text": "Selling tokens during a crash", "isCorrect": false },
+      { "text": "Creating a new wallet", "isCorrect": false }
     ]
   },
   {
-    "question": "In which year did the United States land the first man on the moon?",
+    "question": "What is IPFS primarily used for in Web3?",
     "options": [
-      { "text": "1969", "isCorrect": true },
-      { "text": "1972", "isCorrect": false },
-      { "text": "1965", "isCorrect": false },
-      { "text": "1970", "isCorrect": false }
+      { "text": "Decentralized file storage", "isCorrect": true },
+      { "text": "Mining cryptocurrencies", "isCorrect": false },
+      { "text": "Validating transactions", "isCorrect": false },
+      { "text": "Creating NFTs", "isCorrect": false }
     ]
   },
   {
-    "question": "Who developed the theory of relativity?",
+    "question": "What is the main purpose of oracles in blockchain?",
     "options": [
-      { "text": "Albert Einstein", "isCorrect": true },
-      { "text": "Isaac Newton", "isCorrect": false },
-      { "text": "Niels Bohr", "isCorrect": false },
-      { "text": "Nikola Tesla", "isCorrect": false }
+      { "text": "To provide external data to smart contracts", "isCorrect": true },
+      { "text": "To secure private keys", "isCorrect": false },
+      { "text": "To create tokens", "isCorrect": false },
+      { "text": "To manage wallets", "isCorrect": false }
     ]
   },
   {
-    "question": "What is the smallest unit of matter?",
+    "question": "Which protocol allows data and value to be transferred across blockchains?",
     "options": [
-      { "text": "Atom", "isCorrect": true },
-      { "text": "Molecule", "isCorrect": false },
-      { "text": "Electron", "isCorrect": false },
-      { "text": "Quark", "isCorrect": false }
+      { "text": "Interoperability", "isCorrect": true },
+      { "text": "Interchain", "isCorrect": false },
+      { "text": "Crosslink", "isCorrect": false },
+      { "text": "Chainlink", "isCorrect": false }
     ]
   },
   {
-    "question": "Which country is known as the Land of the Rising Sun?",
+    "question": "Who launched the first ICO (Initial Coin Offering)?",
     "options": [
-      { "text": "Japan", "isCorrect": true },
-      { "text": "China", "isCorrect": false },
-      { "text": "Thailand", "isCorrect": false },
-      { "text": "India", "isCorrect": false }
+      { "text": "Ethereum", "isCorrect": true },
+      { "text": "Bitcoin", "isCorrect": false },
+      { "text": "Ripple", "isCorrect": false },
+      { "text": "Litecoin", "isCorrect": false }
     ]
   },
   {
-    "question": "In computer science, what does 'RAM' stand for?",
+    "question": "What is the primary function of the Ethereum Virtual Machine (EVM)?",
     "options": [
-      { "text": "Random Access Memory", "isCorrect": true },
-      { "text": "Read Access Memory", "isCorrect": false },
-      { "text": "Rapid Action Memory", "isCorrect": false },
-      { "text": "Random Allocation Memory", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Who was the first woman to win a Nobel Prize?",
-    "options": [
-      { "text": "Marie Curie", "isCorrect": true },
-      { "text": "Rosalind Franklin", "isCorrect": false },
-      { "text": "Ada Lovelace", "isCorrect": false },
-      { "text": "Florence Nightingale", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the most abundant gas in the Earth's atmosphere?",
-    "options": [
-      { "text": "Nitrogen", "isCorrect": true },
-      { "text": "Oxygen", "isCorrect": false },
-      { "text": "Carbon Dioxide", "isCorrect": false },
-      { "text": "Argon", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which Renaissance artist painted the Sistine Chapel ceiling?",
-    "options": [
-      { "text": "Michelangelo", "isCorrect": true },
-      { "text": "Leonardo da Vinci", "isCorrect": false },
-      { "text": "Raphael", "isCorrect": false },
-      { "text": "Titian", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "In physics, what is the speed of light in a vacuum?",
-    "options": [
-      { "text": "Approximately 300,000 km/s", "isCorrect": true },
-      { "text": "Approximately 150,000 km/s", "isCorrect": false },
-      { "text": "Approximately 1,000,000 km/s", "isCorrect": false },
-      { "text": "Approximately 30,000 km/s", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the main currency used in Switzerland?",
-    "options": [
-      { "text": "Swiss Franc", "isCorrect": true },
-      { "text": "Euro", "isCorrect": false },
-      { "text": "Dollar", "isCorrect": false },
-      { "text": "Pound", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which ancient civilization built the Machu Picchu complex in Peru?",
-    "options": [
-      { "text": "Inca", "isCorrect": true },
-      { "text": "Maya", "isCorrect": false },
-      { "text": "Aztec", "isCorrect": false },
-      { "text": "Olmec", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which war was fought between the north and south regions in the United States?",
-    "options": [
-      { "text": "The Civil War", "isCorrect": true },
-      { "text": "World War I", "isCorrect": false },
-      { "text": "The Revolutionary War", "isCorrect": false },
-      { "text": "The Spanish-American War", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the chemical symbol for potassium?",
-    "options": [
-      { "text": "K", "isCorrect": true },
-      { "text": "P", "isCorrect": false },
-      { "text": "Po", "isCorrect": false },
-      { "text": "Pt", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Who wrote the novel '1984'?",
-    "options": [
-      { "text": "George Orwell", "isCorrect": true },
-      { "text": "Aldous Huxley", "isCorrect": false },
-      { "text": "J.R.R. Tolkien", "isCorrect": false },
-      { "text": "Ernest Hemingway", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What does DNA stand for?",
-    "options": [
-      { "text": "Deoxyribonucleic Acid", "isCorrect": true },
-      { "text": "Deoxyribonitric Acid", "isCorrect": false },
-      { "text": "Dioxyribonucleic Acid", "isCorrect": false },
-      { "text": "Deoxyribonuclear Acid", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Who composed the Four Seasons?",
-    "options": [
-      { "text": "Antonio Vivaldi", "isCorrect": true },
-      { "text": "Johann Sebastian Bach", "isCorrect": false },
-      { "text": "Wolfgang Amadeus Mozart", "isCorrect": false },
-      { "text": "Ludwig van Beethoven", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Who painted 'The Starry Night'?",
-    "options": [
-      { "text": "Vincent van Gogh", "isCorrect": true },
-      { "text": "Pablo Picasso", "isCorrect": false },
-      { "text": "Claude Monet", "isCorrect": false },
-      { "text": "Leonardo da Vinci", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the tallest mountain in the world?",
-    "options": [
-      { "text": "Mount Everest", "isCorrect": true },
-      { "text": "K2", "isCorrect": false },
-      { "text": "Kangchenjunga", "isCorrect": false },
-      { "text": "Mount Kilimanjaro", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which is the smallest planet in our solar system?",
-    "options": [
-      { "text": "Mercury", "isCorrect": true },
-      { "text": "Mars", "isCorrect": false },
-      { "text": "Venus", "isCorrect": false },
-      { "text": "Earth", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which country was Albert Einstein born in?",
-    "options": [
-      { "text": "Germany", "isCorrect": true },
-      { "text": "Switzerland", "isCorrect": false },
-      { "text": "Austria", "isCorrect": false },
-      { "text": "France", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the smallest prime number?",
-    "options": [
-      { "text": "2", "isCorrect": true },
-      { "text": "3", "isCorrect": false },
-      { "text": "1", "isCorrect": false },
-      { "text": "0", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Who discovered the law of gravitation?",
-    "options": [
-      { "text": "Isaac Newton", "isCorrect": true },
-      { "text": "Galileo Galilei", "isCorrect": false },
-      { "text": "Albert Einstein", "isCorrect": false },
-      { "text": "Niels Bohr", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the rarest blood type?",
-    "options": [
-      { "text": "AB Negative", "isCorrect": true },
-      { "text": "O Negative", "isCorrect": false },
-      { "text": "B Positive", "isCorrect": false },
-      { "text": "A Positive", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "In which city can you find the Colosseum?",
-    "options": [
-      { "text": "Rome", "isCorrect": true },
-      { "text": "Athens", "isCorrect": false },
-      { "text": "Istanbul", "isCorrect": false },
-      { "text": "Paris", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which planet is closest to the sun?",
-    "options": [
-      { "text": "Mercury", "isCorrect": true },
-      { "text": "Venus", "isCorrect": false },
-      { "text": "Earth", "isCorrect": false },
-      { "text": "Mars", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Who discovered radioactivity?",
-    "options": [
-      { "text": "Henri Becquerel", "isCorrect": true },
-      { "text": "Marie Curie", "isCorrect": false },
-      { "text": "Isaac Newton", "isCorrect": false },
-      { "text": "Albert Einstein", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What element has the chemical symbol 'Na'?",
-    "options": [
-      { "text": "Sodium", "isCorrect": true },
-      { "text": "Nitrogen", "isCorrect": false },
-      { "text": "Nickel", "isCorrect": false },
-      { "text": "Neon", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which British author wrote 'Pride and Prejudice'?",
-    "options": [
-      { "text": "Jane Austen", "isCorrect": true },
-      { "text": "Charlotte Bronte", "isCorrect": false },
-      { "text": "Charles Dickens", "isCorrect": false },
-      { "text": "Mary Shelley", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which organ purifies our blood?",
-    "options": [
-      { "text": "Kidneys", "isCorrect": true },
-      { "text": "Liver", "isCorrect": false },
-      { "text": "Heart", "isCorrect": false },
-      { "text": "Lungs", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "In computer science, what does 'URL' stand for?",
-    "options": [
-      { "text": "Uniform Resource Locator", "isCorrect": true },
-      { "text": "Universal Resource Link", "isCorrect": false },
-      { "text": "Uniform Retrieval Language", "isCorrect": false },
-      { "text": "Universal Retrieval Link", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the hardest natural substance on Earth?",
-    "options": [
-      { "text": "Diamond", "isCorrect": true },
-      { "text": "Quartz", "isCorrect": false },
-      { "text": "Granite", "isCorrect": false },
-      { "text": "Gold", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which river is the longest in South America?",
-    "options": [
-      { "text": "Amazon River", "isCorrect": true },
-      { "text": "Orinoco River", "isCorrect": false },
-      { "text": "Paraná River", "isCorrect": false },
-      { "text": "Mississippi River", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Who invented the telephone?",
-    "options": [
-      { "text": "Alexander Graham Bell", "isCorrect": true },
-      { "text": "Thomas Edison", "isCorrect": false },
-      { "text": "Nikola Tesla", "isCorrect": false },
-      { "text": "Guglielmo Marconi", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which French scientist is known as the 'father of microbiology'?",
-    "options": [
-      { "text": "Louis Pasteur", "isCorrect": true },
-      { "text": "Marie Curie", "isCorrect": false },
-      { "text": "Isaac Newton", "isCorrect": false },
-      { "text": "Albert Einstein", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the term for animals that feed exclusively on plants?",
-    "options": [
-      { "text": "Herbivores", "isCorrect": true },
-      { "text": "Carnivores", "isCorrect": false },
-      { "text": "Omnivores", "isCorrect": false },
-      { "text": "Insectivores", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which city was previously known as Constantinople?",
-    "options": [
-      { "text": "Istanbul", "isCorrect": true },
-      { "text": "Athens", "isCorrect": false },
-      { "text": "Rome", "isCorrect": false },
-      { "text": "Venice", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which Italian polymath painted 'The Last Supper'?",
-    "options": [
-      { "text": "Leonardo da Vinci", "isCorrect": true },
-      { "text": "Michelangelo", "isCorrect": false },
-      { "text": "Raphael", "isCorrect": false },
-      { "text": "Titian", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the smallest continent by land area?",
-    "options": [
-      { "text": "Australia", "isCorrect": true },
-      { "text": "Antarctica", "isCorrect": false },
-      { "text": "Europe", "isCorrect": false },
-      { "text": "South America", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which gas is most commonly found in Earth's atmosphere?",
-    "options": [
-      { "text": "Nitrogen", "isCorrect": true },
-      { "text": "Oxygen", "isCorrect": false },
-      { "text": "Carbon Dioxide", "isCorrect": false },
-      { "text": "Argon", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "What is the capital city of Canada?",
-    "options": [
-      { "text": "Ottawa", "isCorrect": true },
-      { "text": "Toronto", "isCorrect": false },
-      { "text": "Montreal", "isCorrect": false },
-      { "text": "Vancouver", "isCorrect": false }
-    ]
-  },
-  {
-    "question": "Which planet is known for its rings?",
-    "options": [
-      { "text": "Saturn", "isCorrect": true },
-      { "text": "Jupiter", "isCorrect": false },
-      { "text": "Uranus", "isCorrect": false },
-      { "text": "Neptune", "isCorrect": false }
+      { "text": "To execute smart contracts", "isCorrect": true },
+      { "text": "To store private keys", "isCorrect": false },
+      { "text": "To mine cryptocurrencies", "isCorrect": false },
+      { "text": "To validate blocks", "isCorrect": false }
     ]
   }
 ]
