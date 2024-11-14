@@ -153,8 +153,8 @@ router.post<{}, SendRewardsResponse>(
       // send actual reward and record participant
       const txn = await sendRewards(
         to,
-        rewardAmount * 1000000,
-        rewardAssetID.toString()
+        Number(rewardAmount.toFixed(2)) * 1000000,
+        rewardAssetID
       );
       participants.push({ participantAddress: to });
       await writeDataFile(participants);
