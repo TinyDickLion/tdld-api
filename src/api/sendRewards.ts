@@ -135,7 +135,7 @@ router.post<{}, SendRewardsResponse>(
       // Check holding time and inflow restrictions
       const hasHeld = await hasNoRecentInflow(to, assetId);
       if (!hasHeld) {
-        const ineligibilityMessage = `Not eligible. To claim the reward, you must hold ${selectedToken.toUpperCase()} continuously in your wallet for at least 12 hours without any recent incoming token transfers.`;
+        const ineligibilityMessage = `Not eligible. To claim the reward, you must hold ${selectedToken.toUpperCase()} continuously in your wallet for at least 16 hours without any recent incoming token transfers.`;
         return res
           .status(400)
           .json({ success: false, message: ineligibilityMessage });

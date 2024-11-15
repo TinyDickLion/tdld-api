@@ -1,7 +1,7 @@
 import { algoIndexerClient } from "./config";
 
 export async function hasNoRecentInflow(address: any, assetId: any) {
-  const minimumHoldDurationMs = 12 * 3600 * 1000; // 12 hours in milliseconds
+  const minimumHoldDurationMs = 16 * 3600 * 1000; // 12 hours in milliseconds
   const now = Date.now();
 
   try {
