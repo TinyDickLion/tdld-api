@@ -5,7 +5,7 @@ import path from "path";
 import { hasNoRecentInflow } from "../algorand/checkAssetHoldingTime";
 import { getRequiredBalance } from "../helpers/sendRewards/getRequiredBalance";
 import { calculateRewardAmount } from "../helpers/sendRewards/calculateRewardAmount";
-import { tokenDetails } from "../constants/tokendetails";
+import { tokenDetails, TOKENS } from "../constants/tokendetails";
 import { readDataFile, writeDataFile } from "../helpers/readAndwritefiles";
 
 type SendRewardsResponse = { success: boolean; message?: string; txn?: any };
@@ -95,7 +95,9 @@ router.post<{}, SendRewardsResponse>(
       // send actual reward and record participant
       const txn = await sendRewards(
         to,
-        Number(rewardAmount.toFixed(2)) * 1000000,
+        selectedToken !== TOKENS.REAR
+          ? Number(rewardAmount.toFixed(2)) * 1000000
+          : Number(rewardAmount.toFixed(2)) * 100000000,
         rewardAssetID
       );
       participants.push({ participantAddress: to });

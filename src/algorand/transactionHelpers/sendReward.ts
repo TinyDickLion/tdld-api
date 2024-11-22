@@ -32,7 +32,7 @@ export async function sendRewards(to: any, amount: any, assetId: any) {
         to,
         undefined, // closeRemainderTo
         undefined, // revocationTarget
-        amount,
+        BigInt(amount),
         // @ts-ignore
         algosdk.encodeObj("Tiny Dick Lion's Den: Congrats! 🦁"),
         parseInt(assetId, 10), // Asset ID for ASA
