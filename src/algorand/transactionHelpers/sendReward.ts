@@ -26,13 +26,14 @@ export async function sendRewards(to: any, amount: any, assetId: any) {
         suggestedParams
       );
     } else {
+      console.log(amount);
       // Sending ASA
       txn = algosdk.makeAssetTransferTxnWithSuggestedParams(
         rewardProviderAccount.addr,
         to,
         undefined, // closeRemainderTo
         undefined, // revocationTarget
-        Number(amount),
+        Number(Number(amount).toFixed(2)),
         // @ts-ignore
         algosdk.encodeObj("Tiny Dick Lion's Den: Congrats! 🦁"),
         parseInt(assetId, 10), // Asset ID for ASA
