@@ -18,8 +18,8 @@ router.post<{}, GetDepositTXResponse>(
     const { asset, txId } = req.body;
     const expectedAmount = asset === "ALGO" ? 2 * 1000000 : 80 * 100000000; // Adjust amounts based on your logic
     const expectedRecipient =
-      "JQONXCP7LYP2O2XQLOPBM6I67LBGCZGEZGHBRRBJBAJEWEIWIRIFZIPXIQ";
-    const assetId = asset === "ALGO" ? "0" : "1279721720"; // Adjust asset ID based on your logic
+      "";
+    const assetId = asset === "ALGO" ? "0" : ""; // Adjust asset ID based on your logic
 
     const checkDeposit = await checkTransactionAmount(
       txId,
