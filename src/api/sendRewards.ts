@@ -7,12 +7,32 @@ import { getRequiredBalance } from "../helpers/sendRewards/getRequiredBalance";
 import { calculateRewardAmount } from "../helpers/sendRewards/calculateRewardAmount";
 import { tokenDetails, TOKENS } from "../constants/tokendetails";
 import { readDataFile, writeDataFile } from "../helpers/readAndwritefiles";
+import { db } from "../config/firebase";
+import admin from "firebase-admin";
 
 type SendRewardsResponse = { success: boolean; message?: string; txn?: any };
 
 const router = express.Router();
 
 const dataPath = path.join(__dirname, "../data/dailyparticipants.json");
+
+const getLeaderboardCollection = () => {
+  const currentDate = new Date();
+
+  // Find the closest Monday
+  const day = currentDate.getDay(); // Day of the week (0 = Sunday, 1 = Monday, etc.)
+  const daysSinceMonday = day === 0 ? 6 : day - 1; // Days since the last Monday
+  const mondayOfThisWeek = new Date(currentDate);
+  mondayOfThisWeek.setDate(currentDate.getDate() - daysSinceMonday);
+
+  // Calculate the week number based on Monday
+  const weekNumber = Math.floor(
+    mondayOfThisWeek.getTime() / (1000 * 60 * 60 * 24 * 7)
+  );
+
+  // Return a collection name that reflects the week number
+  return `weekly_leaderboard_${weekNumber}`;
+};
 
 // Route handler
 router.post<{}, SendRewardsResponse>(
@@ -22,9 +42,9 @@ router.post<{}, SendRewardsResponse>(
 
     // Validate origin
     const origin = req.get("origin");
-    if (origin !== "https://tdldgames.vercel.app") {
-      return res.status(403).json({ success: false, message: "Forbidden" });
-    }
+    // if (origin !== "https://tdldgames.vercel.app") {
+    //   return res.status(403).json({ success: false, message: "Forbidden" });
+    // }
 
     // Validate token selection
     if (!tokenDetails[selectedToken]) {
@@ -83,33 +103,54 @@ router.post<{}, SendRewardsResponse>(
           .json({ success: false, message: ineligibilityMessage });
       }
 
-      // Send reward in test mode
-      // res.json({
-      //   success: true,
-      //   message: `TestMode: Reward sent successfully! You received ${rewardAmount.toFixed(
-      //     2
-      //   )} $${selectedToken.toUpperCase()}.`,
-      //   txn: null,
-      // });
+      // Update leaderboard
+      const leaderboardCollection = getLeaderboardCollection();
+      const userRef = db.collection(leaderboardCollection).doc(to);
 
-      // send actual reward and record participant
-      const txn = await sendRewards(
-        to,
-        selectedToken !== TOKENS.REAR
-          ? Number(rewardAmount.toFixed(2)) * 1000000
-          : Number(rewardAmount.toFixed(2)) * 100000000,
-        rewardAssetID
-      );
-      participants.push({ participantAddress: to });
-      await writeDataFile(dataPath, participants);
+      const userDoc = await userRef.get();
+
+      if (userDoc.exists) {
+        await userRef.update({
+          points: admin.firestore.FieldValue.increment(10),
+          updates: admin.firestore.FieldValue.arrayUnion(
+            new Date().toISOString()
+          ),
+        });
+      } else {
+        await userRef.set({
+          walletAddress: to,
+          points: 10,
+          updates: [new Date().toISOString()],
+        });
+      }
+
+      // Send reward in test mode
       res.json({
         success: true,
-        message: `Reward sent successfully! You received ${rewardAmount.toFixed(
+        message: `TestMode: Reward sent successfully! You received ${rewardAmount.toFixed(
           2
         )} $${selectedToken.toUpperCase()}.`,
-        txn,
+        txn: null,
       });
-      console.log("Reward sent successfully:", txn);
+
+      // send actual reward and record participant
+      // const txn = await sendRewards(
+      //   to,
+      //   selectedToken !== TOKENS.REAR
+      //     ? Number(rewardAmount.toFixed(2)) * 1000000
+      //     : Number(rewardAmount.toFixed(2)) * 100000000,
+      //   rewardAssetID
+      // );
+      // participants.push({ participantAddress: to });
+      // await writeDataFile(dataPath, participants);
+      // res.json({
+      //   success: true,
+      //   message: `Reward sent successfully! You received ${rewardAmount.toFixed(
+      //     2
+      //   )} $${selectedToken.toUpperCase()}.`,
+      //   txn,
+      // });
+      // console.log("Reward sent successfully:", txn);
     } catch (error) {
       console.error("Error processing reward claim:", error);
       res.status(500).json({
