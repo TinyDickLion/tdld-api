@@ -6,7 +6,7 @@ export const getRequiredBalance = async (
   selectedToken: string,
   assetId: number
 ) => {
-  if (selectedToken === TOKENS.TDLD) {
+  if (selectedToken === TOKENS.TDLD || selectedToken === TOKENS.CAT) {
     const API_VESTIGE_URL = `https://free-api.vestige.fi/asset/${assetId}/price?currency=algo`;
     const { data: priceData } = await axios.get(API_VESTIGE_URL);
 

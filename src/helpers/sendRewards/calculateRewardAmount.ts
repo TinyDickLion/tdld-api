@@ -1,6 +1,7 @@
 import { getAccountBalance } from "../../algorand/transactionHelpers/getAccountBalance";
 import {
   BWOM_START_DATE,
+  CAT_START_DATE,
   TLP_START_DATE,
   TokenDetail,
   TOKENS,
@@ -56,6 +57,15 @@ export const calculateRewardAmount = async (
     return (providerHoldings * bwomRewardPercent) / 100;
   }
 
+  // Handle CAT reward calculation dynamically
+  if (selectedToken === TOKENS.CAT) {
+    const catRewardPercent = calculateDynamicCatRewardPercent(
+      CAT_START_DATE,
+      tokenDetails
+    );
+    return (providerHoldings * catRewardPercent) / 100;
+  }
+
   throw new Error("Unsupported token type.");
 };
 
@@ -84,5 +94,19 @@ const calculateDynamicRearRewardPercent = (
   return Math.max(
     0,
     tokenDetails[TOKENS.REAR].rewardPercent - reductions * 0.02
+  );
+};
+
+const calculateDynamicCatRewardPercent = (
+  catStartDate: Date,
+  tokenDetails: Record<string, TokenDetail>
+) => {
+  const daysSinceStart = Math.floor(
+    (Date.now() - catStartDate.getTime()) / (1000 * 60 * 60 * 24)
+  );
+  const reductions = Math.floor(daysSinceStart / 2);
+  return Math.max(
+    0,
+    tokenDetails[TOKENS.CAT].rewardPercent - reductions * 0.02
   );
 };
