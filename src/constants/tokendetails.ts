@@ -26,13 +26,21 @@ export const tokenDetails: Record<string, TokenDetail> = {
     minTLPLPValue: 5,
     rewardPercent: 2,
   },
+  cat: {
+    assetId: 1691166331,
+    rewardAssetID: 1691166331,
+    minAlgoValue: 25,
+    rewardPercent: 2,
+  },
 };
 
 export const TOKENS = {
   TDLD: "tdld",
   REAR: "rear",
   BWOM: "bwom",
+  CAT: "cat",
 };
 
 export const BWOM_START_DATE = new Date("2024-11-14");
 export const TLP_START_DATE = new Date("2024-11-22");
+export const CAT_START_DATE = new Date("2024-11-28");
