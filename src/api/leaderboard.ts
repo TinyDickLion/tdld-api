@@ -1,123 +1,40 @@
 import express, { Request, Response } from "express";
-import fs from "fs";
-import path from "path";
+import { db } from "../config/firebase";
+import { getLeaderboardCollection } from "../helpers/sendRewards/UpdateLeaderboard";
 
 const router = express.Router();
 
-// Path to the leaderboard JSON file
-const leaderboardFile = path.join(__dirname, "../data/leaderboard.json");
-
-// Leaderboard entry type
-type LeaderboardEntry = {
-  name: string;
-  score: number;
-};
-
-// Load the leaderboard from JSON
-const loadLeaderboard = (): LeaderboardEntry[] => {
-  try {
-    const data = fs.readFileSync(leaderboardFile, "utf-8");
-    return JSON.parse(data);
-  } catch (error) {
-    console.error("Failed to read leaderboard:", error);
-    return [];
-  }
-};
-
-// Save the leaderboard to JSON
-const saveLeaderboard = (data: LeaderboardEntry[]): void => {
-  try {
-    fs.writeFileSync(leaderboardFile, JSON.stringify(data, null, 2), "utf-8");
-  } catch (error) {
-    console.error("Failed to write leaderboard:", error);
-  }
-};
-
 // GET /leaderboard - Get the current leaderboard
-router.get("/leaderboard", (req: Request, res: Response) => {
+router.get("/leaderboard", async (req: Request, res: Response) => {
   const origin = req.get("origin");
   if (origin !== "https://tdldgames.vercel.app") {
     console.log(origin);
-    return res.status(403).json();
-  }
-  const leaderboard = loadLeaderboard();
-  res.json(leaderboard);
-});
-
-// POST /leaderboard - Add a new entry to the leaderboard
-router.post("/leaderboard", (req: Request, res: Response) => {
-  const origin = req.get("origin");
-  if (origin !== "https://tdldgames.vercel.app") {
-    console.log(origin);
-    return res.status(403).json();
-  }
-  const { name, score } = req.body;
-
-  if (!name || typeof score !== "number") {
-    return res.status(400).json({ message: "Invalid data provided" });
+    return res.status(403).json({ success: false, message: "Forbidden" });
   }
 
-  // Load the existing leaderboard and add the new entry
-  let leaderboard = loadLeaderboard();
-  leaderboard.push({ name, score });
+  try {
+    const leaderboardCollection = getLeaderboardCollection();
+    const snapshot = await db
+      .collection(leaderboardCollection)
+      .orderBy("points", "desc")
+      .get();
 
-  // Sort the leaderboard in descending order and keep the top 10 entries
-  leaderboard.sort((a, b) => b.score - a.score);
-  leaderboard = leaderboard.slice(0, 10);
+    if (snapshot.empty) {
+      return res.status(200).json({ success: true, leaderboard: [] });
+    }
 
-  // Save the updated leaderboard
-  saveLeaderboard(leaderboard);
+    const leaderboard = snapshot.docs.map((doc) => ({
+      walletAddress: doc.id,
+      ...doc.data(),
+    }));
 
-  res.status(201).json({ message: "Leaderboard updated", leaderboard });
-});
-
-// POST /update-leaderboard - Add or update player scores
-router.post("/update-leaderboard", (req: Request, res: Response) => {
-  const origin = req.get("origin");
-  if (origin !== "https://tdldgames.vercel.app") {
-    console.log(origin);
-    return res.status(403).json();
+    return res.status(200).json({ success: true, leaderboard });
+  } catch (error) {
+    console.error("Error fetching leaderboard:", error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Failed to fetch leaderboard." });
   }
-
-  const { name, score } = req.body;
-
-  if (!name || typeof score !== "number") {
-    return res.status(400).json({ message: "Invalid data" });
-  }
-  if (!(score >= 100)) {
-    return res.status(400).json({ message: "Invalid data" });
-  }
-
-  let leaderboard = loadLeaderboard();
-  const playerIndex = leaderboard.findIndex((entry) => entry.name === name);
-
-  if (playerIndex >= 0) {
-    // Update existing player score if it's higher
-
-    leaderboard[playerIndex].score += score;
-  } else {
-    // Add new player
-    leaderboard.push({ name, score });
-  }
-
-  // Sort by score and keep top 10
-  leaderboard.sort((a, b) => b.score - a.score);
-  leaderboard = leaderboard.slice(0, 10);
-
-  saveLeaderboard(leaderboard);
-  res.json({ message: "Leaderboard updated", leaderboard });
-});
-
-// DELETE /leaderboard - Clear the leaderboard
-router.delete("/leaderboard", (req: Request, res: Response) => {
-  const origin = req.get("origin");
-  if (origin !== "https://tdldgames.vercel.app") {
-    console.log(origin);
-    return res.status(403).json();
-  }
-  // Clear the leaderboard by saving an empty array
-  saveLeaderboard([]);
-  res.json({ message: "Leaderboard cleared" });
 });
 
 export default router;

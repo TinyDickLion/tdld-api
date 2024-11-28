@@ -1,7 +1,7 @@
 import { db } from "../../config/firebase";
 import admin from "firebase-admin";
 
-const getLeaderboardCollection = () => {
+export const getLeaderboardCollection = () => {
   const currentDate = new Date();
 
   // Find the closest Monday
