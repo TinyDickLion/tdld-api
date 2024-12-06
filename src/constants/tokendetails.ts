@@ -32,6 +32,12 @@ export const tokenDetails: Record<string, TokenDetail> = {
     minAlgoValue: 25,
     rewardPercent: 2,
   },
+  marcus: {
+    assetId: 2466866698,
+    rewardAssetID: 2466866698,
+    minAlgoValue: 25,
+    rewardPercent: 2,
+  },
 };
 
 export const TOKENS = {
@@ -39,8 +45,10 @@ export const TOKENS = {
   REAR: "rear",
   BWOM: "bwom",
   CAT: "cat",
+  MARCUS: "marcus",
 };
 
 export const BWOM_START_DATE = new Date("2024-11-14");
 export const TLP_START_DATE = new Date("2024-11-22");
 export const CAT_START_DATE = new Date("2024-11-28");
+export const MARCUS_START_DATE = new Date("2024-12-06");
