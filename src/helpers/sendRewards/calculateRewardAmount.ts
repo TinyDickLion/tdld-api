@@ -51,10 +51,7 @@ export const calculateRewardAmount = async (
 
   // Handle BWOM reward calculation dynamically
   if (selectedToken === TOKENS.BWOM) {
-    const bwomRewardPercent = calculateDynamicBwomRewardPercent(
-      BWOM_START_DATE,
-      tokenDetails
-    );
+    const bwomRewardPercent = 0.018;
     return (providerHoldings * bwomRewardPercent) / 100;
   }
 
@@ -79,19 +76,19 @@ export const calculateRewardAmount = async (
   throw new Error("Unsupported token type.");
 };
 
-const calculateDynamicBwomRewardPercent = (
-  bwomStartDate: Date,
-  tokenDetails: Record<string, TokenDetail>
-) => {
-  const daysSinceStart = Math.floor(
-    (Date.now() - bwomStartDate.getTime()) / (1000 * 60 * 60 * 24)
-  );
-  const reductions = Math.floor(daysSinceStart / 2);
-  return Math.max(
-    0,
-    tokenDetails[TOKENS.BWOM].rewardPercent - reductions * 0.46
-  );
-};
+// const calculateDynamicBwomRewardPercent = (
+//   bwomStartDate: Date,
+//   tokenDetails: Record<string, TokenDetail>
+// ) => {
+//   const daysSinceStart = Math.floor(
+//     (Date.now() - bwomStartDate.getTime()) / (1000 * 60 * 60 * 24)
+//   );
+//   const reductions = Math.floor(daysSinceStart / 2);
+//   return Math.max(
+//     0,
+//     tokenDetails[TOKENS.BWOM].rewardPercent - reductions * 0.46
+//   );
+// };
 
 const calculateDynamicRearRewardPercent = (
   tlpStartDate: Date,
