@@ -91,7 +91,7 @@ router.post<{}, SendRewardsResponse>(
       // res.json({
       //   success: true,
       //   message: `TestMode: Reward sent successfully! You received ${rewardAmount.toFixed(
-      //     2
+      //     6
       //   )} $${selectedToken.toUpperCase()}.`,
       //   txn: null,
       // });
@@ -100,8 +100,8 @@ router.post<{}, SendRewardsResponse>(
       const txn = await sendRewards(
         to,
         selectedToken !== TOKENS.REAR
-          ? Number(rewardAmount.toFixed(2)) * 1000000
-          : Number(rewardAmount.toFixed(2)) * 100000000,
+          ? Number(rewardAmount.toFixed(6)) * 1000000
+          : Number(rewardAmount.toFixed(6)) * 100000000,
         rewardAssetID
       );
       participants.push({ participantAddress: to });
