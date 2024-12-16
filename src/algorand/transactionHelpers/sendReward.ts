@@ -32,7 +32,7 @@ export async function sendRewards(to: any, amount: number, assetId: any) {
         from: rewardProviderAccount.addr,
         to,
         assetIndex: parseInt(assetId, 10), // Asset ID for ASA
-        amount: amount,
+        amount: BigInt(amount),
         note: new Uint8Array(Buffer.from("Tiny Dick Lion's Den: Congrats! 🦁")),
         suggestedParams,
       });
