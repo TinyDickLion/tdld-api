@@ -100,8 +100,8 @@ router.post<{}, SendRewardsResponse>(
       const txn = await sendRewards(
         to,
         selectedToken !== TOKENS.REAR
-          ? Number(rewardAmount.toFixed(6)) * 1000000
-          : Number(rewardAmount.toFixed(6)) * 100000000,
+          ? Number(rewardAmount.toFixed(4)) * 1000000
+          : Number(rewardAmount.toFixed(4)) * 100000000,
         rewardAssetID
       );
       participants.push({ participantAddress: to });
