@@ -109,7 +109,7 @@ router.post<{}, SendRewardsResponse>(
       res.json({
         success: true,
         message: `Reward sent successfully! You received ${rewardAmount.toFixed(
-          2
+          4
         )} $${selectedToken.toUpperCase()}.`,
         txn,
       });
