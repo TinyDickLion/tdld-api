@@ -2,7 +2,7 @@ import algosdk from "algosdk";
 
 import { algodClient } from "../config";
 // import { autoOptOutRewardedAsset } from "../opt-out.js";
-export async function sendRewards(to: any, amount: any, assetId: any) {
+export async function sendRewards(to: any, amount: number, assetId: any) {
   try {
     // Input validation
     if (!algosdk.isValidAddress(to)) {
@@ -28,17 +28,14 @@ export async function sendRewards(to: any, amount: any, assetId: any) {
     } else {
       console.log(amount);
       // Sending ASA
-      txn = algosdk.makeAssetTransferTxnWithSuggestedParams(
-        rewardProviderAccount.addr,
+      txn = algosdk.makeAssetTransferTxnWithSuggestedParamsFromObject({
+        from: rewardProviderAccount.addr,
         to,
-        undefined, // closeRemainderTo
-        undefined, // revocationTarget
-        Number(Number(amount).toFixed(6)),
-        // @ts-ignore
-        algosdk.encodeObj("Tiny Dick Lion's Den: Congrats! 🦁"),
-        parseInt(assetId, 10), // Asset ID for ASA
-        suggestedParams
-      );
+        assetIndex: parseInt(assetId, 10), // Asset ID for ASA
+        amount: amount,
+        note: new Uint8Array(Buffer.from("Tiny Dick Lion's Den: Congrats! 🦁")),
+        suggestedParams,
+      });
     }
 
     const signedTxn = algosdk.signTransaction(txn, rewardProviderAccount.sk);
